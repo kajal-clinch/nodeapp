@@ -1,0 +1,120 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "next API",
+    "description": "testing swagger"
+  },
+  "host": "localhost:5000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "user",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/user": {
+      "get": {
+        "summary": "Get call",
+        "tags": [
+          "user"
+        ],
+        "description": "Get api call testing",
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          },
+          "404": {
+            "description": "failed"
+          }
+        }
+      },
+      "post": {
+        "summary": "post call",
+        "tags": [
+          "user"
+        ],
+        "description": "Get api call testing",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "name": "user",
+              "email": "user1@gmail.com",
+              "age": 25
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "data": {
+              "$ref": "#/definitions/postuser"
+            }
+          },
+          "404": {
+            "description": "failed"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "postuser": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": "200"
+        },
+        "status": {
+          "type": "string",
+          "example": "Success"
+        },
+        "data": {
+          "type": "object",
+          "example": {
+            "name": "user1",
+            "email": "user1@gmail.com",
+            "age": 25
+          }
+        }
+      }
+    },
+    "userdata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "user1"
+        },
+        "email": {
+          "type": "string",
+          "example": "user1@gmail.com"
+        },
+        "age": {
+          "type": "integer",
+          "examle": 28
+        }
+      }
+    }
+  }
+}
