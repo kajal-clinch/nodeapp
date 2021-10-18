@@ -22,7 +22,7 @@ mongoose.connection.on('open', async function (err) {
     else {
         try {
             console.log(commonMessages[1].text);
-            logger.info("database connected successfully");
+            logger.info(commonMessages[1].text);
             // startRoutes(app);
         }
         catch (error) {
