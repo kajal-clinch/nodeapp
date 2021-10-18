@@ -2,12 +2,13 @@ import * as express from 'express';
 import { validateUser } from "./../../validators/v1/user";
 import * as requestHandler from './../../helper/requestHandler';
 import { logger } from './../../helper/logger';
+import { commonMessages } from './../../helper/commonMessages';
 
 export const userRouter = express.Router();
 
 userRouter.get("/", async (req: express.Request, res: express.Response) => {
     try {
-        res.status(200).json({ status: true, message: 'get called successfully', code: 200, data: {} });
+        res.status(200).json({ status: true, message: commonMessages[3].text, code: 200, data: {} });
         logger.info('get called successfully')
     } catch (e: any) {
         logger.error(e.message);
@@ -29,7 +30,7 @@ userRouter.post("/", async (req: express.Request, res: express.Response) => {
             data: input
         }
         res.status(200).json(response);
-        logger.info('post called successfully')
+        logger.info(commonMessages[4].text)
     } catch (e: any) {
         logger.error(e.message)
         res.status(500).send(e.message);

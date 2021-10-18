@@ -1,10 +1,9 @@
 'use strict';
 import * as http from 'http';
-import { startRoutes } from './routes';
-import mongoose from "mongoose";
 import { serverConfig } from './config';
 import { app } from './app';
 import { logger } from './helper/logger';
+import { setMongooseConnection } from './dbconfig';
 
 const PORT: number = serverConfig.port;
 const HOST: string = serverConfig.host;
@@ -31,31 +30,4 @@ server.on('listening', () => {
 })
 
 
-function setMongooseConnection() {
-    mongoose.connect(serverConfig.database.uri);
-}
 
-//database connection settings
-mongoose.connection.on('error', function (err: any) {
-    const errorMsg = `Database connection error ${serverConfig.database.uri},with error: ${err}`;
-    logger.error(errorMsg);
-    console.log(errorMsg);
-    process.exit(1);
-});
-
-mongoose.connection.on('open', async function (err) {
-    if (err) {
-        logger.error("database error: ", err);
-    }
-    else {
-        try {
-            console.log("database connected successfully");
-            logger.info("database connected successfully");
-            // startRoutes(app);
-        }
-        catch (error) {
-            logger.error(error);
-            process.exit(1);
-        }
-    }
-});

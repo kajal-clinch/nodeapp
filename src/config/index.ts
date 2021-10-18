@@ -12,6 +12,5 @@ if (!process.env.PORT) {
 export const serverConfig =
 {
     port: parseInt(process.env.PORT as string) || 5000,
-    host: process.env.HOST || '0.0.0.0',
-    database: { 'uri': 'mongodb://localhost/testdb' }
+    host: process.env.HOST || '0.0.0.0'
 }

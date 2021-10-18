@@ -1,0 +1,1 @@
+export const mongodbUri = { 'uri': 'mongodb://localhost/testdb' };
