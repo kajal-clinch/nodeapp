@@ -13,7 +13,7 @@ describe('User api testing', () => {
             .get("/api/v1/user")
             .expect(200);
         expect(response).not.toBeNull();
-        expect(response.body.data).toEqual("get called successfully");
+        expect(response.body.message).toEqual("get called successfully");
     })
 
     it("Should save some data", async () => {

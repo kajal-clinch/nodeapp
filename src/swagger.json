@@ -56,10 +56,9 @@
           {
             "in": "body",
             "name": "body",
+            "required":true,
             "schema": {
-              "name": "user",
-              "email": "user1@gmail.com",
-              "age": 25
+              "$ref": "#/definitions/userdata"
             }
           }
         ],
