@@ -6,7 +6,7 @@
 3. Run "npm run dev" to start project
 4. Use "http://localhost:5000" via postman
 
-## Localhost .env file
+### Localhost .env file
 A sample .env file exists in this repo, but with no values. Please request keys etc from James Prout.
 
 ### Packages for development
